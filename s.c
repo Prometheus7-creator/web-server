@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
 
@@ -44,6 +45,11 @@ int main (int argc, char *argv[]) {
 	
 	printf("Response received\n");
 	printf("%s\n", serv_response);
+	
+	//Close the socket
+	close (socketDescriptor);
+	
+	printf("Socket closed.\n");
 	
 	return 0;
 }
